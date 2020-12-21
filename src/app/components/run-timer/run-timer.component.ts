@@ -1,6 +1,6 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {Subscription, timer} from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription, timer } from 'rxjs';
 
 @Component({
   selector: 'app-run-timer',
@@ -13,9 +13,7 @@ export class RunTimerComponent implements OnInit, OnDestroy {
   private timerTimer: Subscription;
   private targetTime: number;
 
-  constructor(private route: ActivatedRoute,
-              private router: Router) {
-  }
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   public ngOnInit(): void {
     this.targetTime = parseInt(this.route.snapshot.paramMap.get('until'));

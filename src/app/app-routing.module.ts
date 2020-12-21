@@ -4,12 +4,16 @@ import { TimeSelectComponent } from './components/time-select/time-select.compon
 import { RunTimerComponent } from './components/run-timer/run-timer.component';
 
 const routes: Routes = [
-  { path: '', component: TimeSelectComponent , pathMatch: 'full' },
-  { path: 'run', component: RunTimerComponent},
+  { path: '', component: TimeSelectComponent, pathMatch: 'full' },
+  { path: 'run', component: RunTimerComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{ useHash: true })],
+  imports: [
+    RouterModule.forRoot(routes, { useHash: true }),
+  ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}
+
