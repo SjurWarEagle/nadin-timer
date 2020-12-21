@@ -1,0 +1,7 @@
+FROM node:14.15.3
+
+RUN mkdir -p /home/builduser
+RUN chmod 777 -R /home/builduser
+RUN chown 1000 -R /home/builduser
+
+WORKDIR /home/builddir
