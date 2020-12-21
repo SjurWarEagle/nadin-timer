@@ -83,7 +83,8 @@ pipeline {
               */
               'HOME=.',
             ]) {
-              sh 'rm -fr /builds/${PRODUCT_NAME}/'
+              // delete only the files, not the folder as it is referenced by nginx
+              sh 'rm -fr /builds/${PRODUCT_NAME}/*'
               sh "npm run build:jenkins"
               sh 'mkdir -p /builds/${PRODUCT_NAME}/'
               sh 'chmod 777 /builds/${PRODUCT_NAME}/'
