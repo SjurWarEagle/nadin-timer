@@ -4,9 +4,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app/app.component';
 import { StatusLogoComponent } from './components/status-logo/status-logo.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TimeSelectComponent } from './components/time-select/time-select.component';
+import { RunTimerComponent } from './components/run-timer/run-timer.component';
 
 @NgModule({
-  declarations: [AppComponent, StatusLogoComponent],
+  declarations: [
+    AppComponent,
+    StatusLogoComponent,
+    TimeSelectComponent,
+    RunTimerComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
