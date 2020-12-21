@@ -11,7 +11,7 @@ pipeline {
 
       causeString: 'Triggered on $ref',
 
-      token: 'abc123',
+      token: 'tokenNadinTimer',
       tokenCredentialId: '',
 
       printContributedVariables: true,
