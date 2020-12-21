@@ -1,70 +1,74 @@
 <div class="all-times">
-  <button mat-raised-button
-          matTooltip="nur yum Testen, sehr kurze Yeit"
-          (click)="startTimerMinutes(0.1)"
-          class="time"
-  >
-    TEST
-  </button>
+  <div class="time-absolute">
+    <button mat-raised-button
+            matTooltip="nur yum Testen, sehr kurze Zeit"
+            (click)="startTimerMinutes(0.1)"
+            class="time"
+    >
+      TEST
+    </button>
 
-  <button mat-raised-button
-          matTooltip="5 minuten ab jetzt"
-          (click)="startTimerMinutes(5)"
-          class="time"
-  >
-    5min
-  </button>
+    <button mat-raised-button
+            matTooltip="5 minuten ab jetzt"
+            (click)="startTimerMinutes(5)"
+            class="time"
+    >
+      5min
+    </button>
 
-  <button mat-raised-button
-          matTooltip="10 minuten ab jetzt"
-          (click)="startTimerMinutes(10)"
-          class="time"
-  >
-    10min
-  </button>
+    <button mat-raised-button
+            matTooltip="10 minuten ab jetzt"
+            (click)="startTimerMinutes(10)"
+            class="time"
+    >
+      10min
+    </button>
 
-  <button mat-raised-button
-          matTooltip="15 minuten ab jetzt"
-          (click)="startTimerMinutes(15)"
-          class="time"
-  >
-    15min
-  </button>
+    <button mat-raised-button
+            matTooltip="15 minuten ab jetzt"
+            (click)="startTimerMinutes(15)"
+            class="time"
+    >
+      15min
+    </button>
 
-  <hr>
-  <button mat-raised-button
-          matTooltip="bis Viertel nach"
-          (click)="untilQuarterPast()"
-          class="time"
-  >
-    <fa-icon [icon]="['fas', 'clock']"></fa-icon>
-    :15
-  </button>
+  </div>
 
-  <button mat-raised-button
-          matTooltip="bis Halb"
-          (click)="untilHalfPast()"
-          class="time"
-  >
-    <fa-icon [icon]="['fas', 'clock']"></fa-icon>
-    :30
-  </button>
+  <div class="time-relative">
+    <button mat-raised-button
+            matTooltip="bis Viertel nach"
+            (click)="untilQuarterPast()"
+            class="time"
+    >
+      <fa-icon [icon]="['fas', 'clock']" rotate="90"></fa-icon>
+      :15
+    </button>
 
-  <button mat-raised-button
-          matTooltip="bis Viertel vor"
-          (click)="untilQuarterBefore()"
-          class="time"
-  >
-    <fa-icon [icon]="['fas', 'clock']"></fa-icon>
-    :45
-  </button>
+    <button mat-raised-button
+            matTooltip="bis Halb"
+            (click)="untilHalfPast()"
+            class="time"
+    >
+      <fa-icon [icon]="['fas', 'clock']" rotate="180"></fa-icon>
+      :30
+    </button>
 
-  <button mat-raised-button
-          matTooltip="bis Voll"
-          (click)="untilFull()"
-          class="time"
-  >
-    <fa-icon [icon]="['fas', 'clock']"></fa-icon>
-    :00
-  </button>
+    <button mat-raised-button
+            matTooltip="bis Viertel vor"
+            (click)="untilQuarterBefore()"
+            class="time"
+    >
+      <fa-icon [icon]="['fas', 'clock']" rotate="270"></fa-icon>
+      :45
+    </button>
+
+    <button mat-raised-button
+            matTooltip="bis Voll"
+            (click)="untilFull()"
+            class="time"
+    >
+      <fa-icon [icon]="['fas', 'clock']"></fa-icon>
+      :00
+    </button>
+  </div>
 </div>

@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TimeSelectComponent } from './components/time-select/time-select.component';
 import { RunTimerComponent } from './components/run-timer/run-timer.component';
 import {FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faClock } from '@fortawesome/free-solid-svg-icons';
+import { faClock, faHistory } from '@fortawesome/free-solid-svg-icons';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -33,7 +33,7 @@ import {MatInputModule} from '@angular/material/input';
 })
 export class AppModule {
   constructor(private library: FaIconLibrary) {
-    library.addIcons(faClock);
+    library.addIcons(faClock, faHistory);
   }
 
 }

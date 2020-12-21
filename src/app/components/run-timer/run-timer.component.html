@@ -3,3 +3,11 @@
   <app-status-logo [seconds]="seconds" [minutes]="minutes"></app-status-logo>
   <span class="time seconds">{{ seconds }}</span>
 </div>
+
+<div class="back"
+     matTooltip="zur Zeitauswahl"
+>
+  <a [routerLink]="['/']">
+    <fa-icon [icon]="['fas', 'history']"></fa-icon>
+  </a>
+</div>
