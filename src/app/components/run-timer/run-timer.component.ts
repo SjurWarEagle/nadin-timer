@@ -1,6 +1,6 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {Subscription, timer} from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription, timer } from 'rxjs';
 
 @Component({
   selector: 'app-run-timer',
@@ -14,17 +14,15 @@ export class RunTimerComponent implements OnInit, OnDestroy {
   private targetTime: number;
   private alarmTriggered: boolean;
 
-  constructor(private route: ActivatedRoute, private router: Router) {
-  }
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   public ngOnInit(): void {
-
     this.targetTime = parseInt(this.route.snapshot.paramMap.get('until'));
     // this.targetTime = new Date().getTime() + 1000 * 60 * 1 - 55000;
 
     this.timerTimer = timer(0, 100).subscribe(() => {
       const now: Date = new Date(Date.now());
-      const date:Date = new Date(this.targetTime - now.getTime());
+      const date: Date = new Date(this.targetTime - now.getTime());
 
       if (this.targetTime < now.getTime()) {
         this.seconds = '00';
@@ -42,7 +40,7 @@ export class RunTimerComponent implements OnInit, OnDestroy {
 
   public playAudio(): void {
     let audio = new Audio();
-    audio.src = "../../assets/alarm.wav";
+    audio.src = '../../assets/alarm.wav';
     audio.load();
     audio.play();
   }

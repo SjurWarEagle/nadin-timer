@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./time-select.component.scss'],
 })
 export class TimeSelectComponent implements OnInit {
-
   constructor(private router: Router) {}
 
   public ngOnInit(): void {}

@@ -7,7 +7,7 @@
     "build": "ng build",
     "build:prod": "ng build --prod",
     "build:jenkins": "ng build --prod",
-    "prettier": "prettier -w .",
+    "prettier": "prettier -w src",
     "ncu": "ncu -x typescript -u ",
     "postinstall": "ngcc"
   },

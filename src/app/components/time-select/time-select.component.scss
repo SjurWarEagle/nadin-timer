@@ -4,12 +4,22 @@
   justify-content: center;
   align-items: center;
   align-self: center;
-  grid-template-rows: 1fr auto auto 1fr;
+  grid-template-rows: 1fr 2fr auto auto 1fr;
   grid-template-areas:
-  ". . ."
-  ". absolute ."
-  ". relative . "
-  ". . . "
+    ". . ."
+    ". logo ."
+    ". absolute ."
+    ". relative . "
+    ". . . ";
+}
+
+.logo {
+  width: 30em;
+  height: 30em;
+  grid-area: logo;
+  display: flex;
+  justify-self: center;
+  //background-color: orange;
 }
 
 .time-absolute {

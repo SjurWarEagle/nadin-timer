@@ -1,0 +1,44 @@
+@-moz-keyframes move-map {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: calc(1196px*1) 0;
+  }
+}
+
+@-webkit-keyframes move-map {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: calc(1196px*1) 0;
+  }
+}
+
+@-o-keyframes move-map {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: calc(1196px*1) 0;
+  }
+}
+
+@-ms-keyframes move-map {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: calc(1196px*1) 0;
+  }
+}
+
+@keyframes move-map {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: calc(1196px*1) 0;
+  }
+}

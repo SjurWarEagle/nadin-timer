@@ -6,11 +6,15 @@ import { StatusLogoComponent } from './components/status-logo/status-logo.compon
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TimeSelectComponent } from './components/time-select/time-select.component';
 import { RunTimerComponent } from './components/run-timer/run-timer.component';
-import {FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {
+  FaIconLibrary,
+  FontAwesomeModule,
+} from '@fortawesome/angular-fontawesome';
 import { faClock, faHistory } from '@fortawesome/free-solid-svg-icons';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { NadinLogoComponent } from './components/nadin-logo/nadin-logo.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +22,7 @@ import {MatInputModule} from '@angular/material/input';
     StatusLogoComponent,
     TimeSelectComponent,
     RunTimerComponent,
+    NadinLogoComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,5 +40,4 @@ export class AppModule {
   constructor(private library: FaIconLibrary) {
     library.addIcons(faClock, faHistory);
   }
-
 }
