@@ -1,12 +1,11 @@
-<div
+<img
   *ngIf="seconds !== '00' || minutes !== '00'"
   [@secondsUpdated]="isSecondsEven() ? 'even' : 'uneven'"
   class="divider-logo"
-
->
-      <app-nadin-logo></app-nadin-logo>
-      <app-nadin-logo></app-nadin-logo>
-</div>
+  src="../../assets/nadin-logo.gif"
+/>
+<!--      <app-nadin-logo></app-nadin-logo>-->
+<!--      <app-nadin-logo></app-nadin-logo>-->
 <img
   *ngIf="seconds == '00' && minutes == '00'"
   class="divider-logo"
