@@ -18,25 +18,17 @@ import {
       state(
         'uneven',
         style({
-          // transform: 'rotate(180deg)'
         })
       ),
       state(
         'even',
         style({
-          // transform: 'rotate(360deg)'
         })
       ),
       transition('* => *', [
         animate('0.2s', keyframes([style({ transform: 'scale(1.05)' })])),
         animate('0.2s', keyframes([style({ transform: 'scale(1)' })])),
       ]),
-      // transition('uneven => even', [
-      //   animate('0.2s')
-      // ]),
-      // transition('even => uneven', [
-      //   animate('0.2s')
-      // ]),
     ]),
   ],
 })

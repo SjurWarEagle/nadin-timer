@@ -18,7 +18,6 @@ export class RunTimerComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.targetTime = parseInt(this.route.snapshot.paramMap.get('until'));
-    // this.targetTime = new Date().getTime() + 1000 * 60 * 1 - 55000;
 
     this.timerTimer = timer(0, 100).subscribe(() => {
       const now: Date = new Date(Date.now());
