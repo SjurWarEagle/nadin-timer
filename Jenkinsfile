@@ -11,7 +11,7 @@ pipeline {
 
       causeString: 'Triggered on $ref',
 
-      token: 'tokenNadinTimer',
+      token: 'tokenNadinTimer_'+ BRANCH_NAME,
       tokenCredentialId: '',
 
       printContributedVariables: true,
@@ -19,7 +19,7 @@ pipeline {
 
       silentResponse: false,
 
-      regexpFilterText: '$ref',
+      regexpFilterText: '$repository refs/heads/' + BRANCH_NAME,
       regexpFilterExpression: 'refs/heads/' + BRANCH_NAME
     )
   }
