@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,10 +6,8 @@ import { Router } from '@angular/router';
   templateUrl: './time-select.component.html',
   styleUrls: ['./time-select.component.scss'],
 })
-export class TimeSelectComponent implements OnInit {
+export class TimeSelectComponent {
   constructor(private router: Router) {}
-
-  public ngOnInit(): void {}
 
   public untilQuarterPast(): void {
     const now = new Date();

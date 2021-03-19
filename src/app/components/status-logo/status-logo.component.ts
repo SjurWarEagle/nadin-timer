@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {
   animate,
   keyframes,
@@ -40,15 +40,11 @@ import {
     ]),
   ],
 })
-export class StatusLogoComponent implements OnInit {
+export class StatusLogoComponent {
   @Input()
   public seconds: string;
   @Input()
   public minutes: string;
-
-  constructor() {}
-
-  ngOnInit(): void {}
 
   public isSecondsEven() {
     return +this.seconds % 2;
