@@ -6,16 +6,12 @@ pipeline {
   triggers {
     GenericTrigger(
       genericVariables: [
-        [key: 'ref', value: '$.ref'],
-        [key: 'reference', value: '$.ref'],
-        [      key: 'before',
-               value: '$.before'
-        ]
+        [key: 'ref', value: '$.ref']
       ],
 
       causeString: 'Triggered on $ref',
 
-      token: 'tokenNadinTimer',
+      token: 'tokenNadinTimer_'+ BRANCH_NAME,
       tokenCredentialId: '',
 
       printContributedVariables: true,
@@ -23,8 +19,8 @@ pipeline {
 
       silentResponse: false,
 
-//      regexpFilterText: '$repository',
-//      regexpFilterExpression: 'refs/heads/' + BRANCH_NAME
+      regexpFilterText: '$repository',
+      regexpFilterExpression: 'refs/heads/' + BRANCH_NAME
     )
   }
 
