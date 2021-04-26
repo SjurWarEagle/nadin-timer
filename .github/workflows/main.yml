@@ -22,7 +22,7 @@ jobs:
         with:
           push: true
           tags: wareagledocker/nadin-timer:latest
-          file: Docker/Dockerfile
+          file: docker/Dockerfile
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
