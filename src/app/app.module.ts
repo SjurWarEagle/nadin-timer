@@ -15,6 +15,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NadinLogoComponent } from './components/nadin-logo/nadin-logo.component';
+import { FakeStatusComponent } from './components/fake-status/fake-status.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { NadinLogoComponent } from './components/nadin-logo/nadin-logo.component
     TimeSelectComponent,
     RunTimerComponent,
     NadinLogoComponent,
+    FakeStatusComponent,
   ],
   imports: [
     BrowserModule,

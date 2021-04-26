@@ -3,7 +3,7 @@
 }
 
 .timer {
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,4 +21,5 @@
   position: absolute;
   right: 1em;
   top: 0.5em;
+  display: inline-block;
 }
