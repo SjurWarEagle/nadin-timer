@@ -5,5 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './nadin-logo.component.html',
   styleUrls: ['./nadin-logo.component.scss'],
 })
-export class NadinLogoComponent {
-}
+export class NadinLogoComponent {}

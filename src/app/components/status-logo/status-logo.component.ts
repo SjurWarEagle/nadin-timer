@@ -15,16 +15,8 @@ import {
   animations: [
     trigger('secondsUpdated', [
       // ...
-      state(
-        'uneven',
-        style({
-        })
-      ),
-      state(
-        'even',
-        style({
-        })
-      ),
+      state('uneven', style({})),
+      state('even', style({})),
       transition('* => *', [
         animate('0.2s', keyframes([style({ transform: 'scale(1.05)' })])),
         animate('0.2s', keyframes([style({ transform: 'scale(1)' })])),
