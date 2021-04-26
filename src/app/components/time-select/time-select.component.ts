@@ -51,6 +51,11 @@ export class TimeSelectComponent {
     this.router.navigate(['/run', { until: targetTime }]);
   }
 
+  public someSeconds(): void {
+    const targetTime = new Date().getTime() + 1000 * 5;
+    this.router.navigate(['/run', { until: targetTime }]);
+  }
+
   public startTimerMinutes(minutes: number): void {
     const targetTime = new Date().getTime() + 1000 * 60 * minutes;
     this.router.navigate(['/run', { until: targetTime }]);

@@ -30,6 +30,10 @@ export class StatusLogoComponent {
   @Input()
   public minutes: string;
 
+  public isDone(): boolean {
+    return this.seconds == '00' && this.minutes == '00';
+  }
+
   public isSecondsEven() {
     return +this.seconds % 2;
   }

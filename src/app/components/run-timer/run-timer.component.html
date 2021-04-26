@@ -7,7 +7,8 @@
   ></app-status-logo>
   <span class="time seconds">{{ seconds }}</span>
 </div>
-<app-fake-status></app-fake-status>
+
+<app-fake-status *ngIf="seconds != '00' || minutes != '00'"></app-fake-status>
 
 <div class="back" matTooltip="zur Zeitauswahl">
   <a [routerLink]="['/']">
