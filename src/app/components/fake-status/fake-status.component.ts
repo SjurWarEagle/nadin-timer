@@ -18,9 +18,9 @@ import {
       transition('* => *', [
         //reset
         animate('0s', keyframes([style({ transform: 'translateX(-10%)' })])),
-        animate('15s', keyframes([style({ transform: 'translateX(100%)' })])),
+        animate('20s', keyframes([style({ transform: 'translateX(100%)' })])),
         //pause
-        animate('25s', keyframes([style({ transform: 'translateX(100%)' })])),
+        animate('30s', keyframes([style({ transform: 'translateX(100%)' })])),
       ]),
     ]),
   ],

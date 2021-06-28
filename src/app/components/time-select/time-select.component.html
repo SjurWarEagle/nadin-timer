@@ -15,6 +15,15 @@
 
     <button
       mat-raised-button
+      matTooltip="8 minuten ab jetzt"
+      (click)="startTimerMinutes(8)"
+      class="time"
+    >
+      8min
+    </button>
+
+    <button
+      mat-raised-button
       matTooltip="10 minuten ab jetzt"
       (click)="startTimerMinutes(10)"
       class="time"
@@ -68,13 +77,13 @@
     >
       🕛 :00
     </button>
-<!--    <button-->
-<!--      mat-raised-button-->
-<!--      matTooltip="TEST"-->
-<!--      (click)="someSeconds()"-->
-<!--      class="time"-->
-<!--    >-->
-<!--      !!!!TEST!!!!-->
-<!--    </button>-->
+    <!--    <button-->
+    <!--      mat-raised-button-->
+    <!--      matTooltip="TEST"-->
+    <!--      (click)="someSeconds()"-->
+    <!--      class="time"-->
+    <!--    >-->
+    <!--      !!!!TEST!!!!-->
+    <!--    </button>-->
   </div>
 </div>

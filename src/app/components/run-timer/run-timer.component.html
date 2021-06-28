@@ -8,8 +8,9 @@
   <span class="time seconds">{{ seconds }}</span>
 </div>
 
-<app-fake-status *ngIf="seconds != '00' || minutes != '00'"
-                 class="fake-timer"
+<app-fake-status
+  *ngIf="seconds != '00' || minutes != '00'"
+  class="fake-timer"
 ></app-fake-status>
 
 <div class="back" matTooltip="zur Zeitauswahl">
