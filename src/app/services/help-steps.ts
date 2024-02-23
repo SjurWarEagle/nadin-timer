@@ -154,11 +154,11 @@ export function stepsCustomTimer(introJsService: IntroJsService, step: Steps): S
         title: 'Custom times',
         text: `
           <p>
-            Sometimes it is not good enough to have predefiend times.
+            Sometimes it is not good enough to have predefined times.
           </p>
 
           <p>
-          Use this setting to define own time ranges.
+          Use this setting to define your own time ranges.
           </p>`,
         when: {
             destroy: function () {
