@@ -16,6 +16,7 @@ ADD . /project
 # https://stackoverflow.com/questions/77989039/error-cannot-find-module-nx-nx-linux-x64-gnu
 RUN rm package-lock.json
 RUN npm install -g increase-memory-limit
+RUN increase-memory-limit
 
 RUN sed -i "s/AA\.BB\.CCCC/$(date +"%d.%m.%Y_%H:%M:%S")/" /project/src/environments/environment.prod.ts
 RUN sed -i "s/AA\.BB\.CCCC/$(date +"%d.%m.%Y_%H:%M:%S")/" /project/src/environments/environment.ts
