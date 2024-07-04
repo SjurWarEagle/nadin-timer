@@ -1,5 +1,10 @@
+.toolbar {
+  margin: 0;
+  padding: 0;
+  height: 2em;
+}
 
-.translation{
+.translation {
   font-size: x-large;
   margin-right: 0.1em;
 }
@@ -8,9 +13,9 @@
   flex: 1 1 auto;
 }
 
-.selected{
+.selected {
 }
 
-.unselected{
+.unselected {
   filter: grayscale(80%);
 }

@@ -1,9 +1,10 @@
 <div
+  [hidden]="isDone()"
   class="divider-logo"
+  style="transform: translateY(-10%)"
   [@secondsUpdated]="isSecondsEven() ? 'even' : 'uneven'"
 >
   <app-nadin-logo
-    [hidden]="isDone()"
   ></app-nadin-logo>
 </div>
 

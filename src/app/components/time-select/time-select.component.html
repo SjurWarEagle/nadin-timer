@@ -1,11 +1,11 @@
-<app-settings-toolbar
-  id="userguide-language"
-></app-settings-toolbar>
 <ng-container *transloco="let translate">
-
   <div class="all-times"
        id="userguide-overview"
   >
+    <app-settings-toolbar
+      class="toolbar"
+      id="userguide-language"
+    ></app-settings-toolbar>
 
     <div class="logo">
       <app-nadin-logo></app-nadin-logo>
@@ -29,7 +29,7 @@
         (click)="startTimerMinutes(5)"
         class="time"
       >
-        5{{translate('min')}}
+        5{{ translate('min') }}
       </button>
 
       <button
@@ -39,7 +39,7 @@
         (click)="startTimerMinutes(10)"
         class="time"
       >
-        10{{translate('min')}}
+        10{{ translate('min') }}
       </button>
 
       <button
@@ -49,7 +49,7 @@
         class="time"
         *ngIf="!showCustomPanel"
       >
-        15{{translate('min')}}
+        15{{ translate('min') }}
       </button>
 
       <div
@@ -63,7 +63,7 @@
           class="custom time"
           id="userguide-custom-start"
         >
-          {{customMinutes}}{{translate('min')}}
+          {{ customMinutes }}{{ translate('min') }}
         </button>
 
         <mat-form-field

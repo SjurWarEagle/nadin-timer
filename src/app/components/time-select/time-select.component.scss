@@ -1,43 +1,43 @@
 .all-times {
-  height: 100vh;
-  display: grid;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   align-self: center;
-  grid-template-rows: 1fr auto auto auto 1fr;
-  grid-template-areas:
-    ". . ."
-    ". logo ."
-    ". absolute ."
-    ". relative . "
-    ". . . ";
+  overflow: auto;
 }
 
 .logo {
-  grid-area: logo;
-  //display: flex;
+  flex-grow: 1;
   justify-self: center;
-  //text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+.toolbar {
+  flex-grow: 0;
+  //justify-self: center;
+  width: 100%;
 }
 
 .time-absolute {
-  grid-area: absolute;
-  display: flex;
+  flex-grow: 0;
   justify-self: center;
 }
 
 .time-relative {
-  grid-area: relative;
-  display: flex;
+  flex-grow: 0;
   justify-self: center;
 }
 
 .time {
-  margin: 1em;
+  margin: 0.2em;
   padding: 1em;
   font-size: larger;
   width: 6em;
-  height: 6em;
+  height: 5em;
 }
 
 .custom {

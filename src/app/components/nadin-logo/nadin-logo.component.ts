@@ -11,13 +11,15 @@ export class NadinLogoComponent {
   constructor(private themeDeciderService: ThemeDeciderService) {
   }
 
-  public getAppLogo(): string {
-    return this.themeDeciderService.appLogo;
-  }
 
   public getTheme(): string {
-    return this.themeDeciderService.theme;
+    return this.themeDeciderService.theme.toLowerCase();
   }
 
+  public getBackgroundImageUrl(): any {
+    return {
+      'background-image': 'url(../../assets/season/' + this.getTheme() + '/nadin.png)'
+    };
+  }
 
 }
