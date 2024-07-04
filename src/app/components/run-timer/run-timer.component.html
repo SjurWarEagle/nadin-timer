@@ -4,7 +4,9 @@
   [toTime]="this.targetTime"
 ></app-timer-progress>
 
-<div class="timer">
+<div class="timer"
+     (click)="stopElevatorMusic()"
+>
   <span class="time minutes"
         [ngClass]="{
         'blink':isDone(),
@@ -50,5 +52,10 @@
   <fa-icon [icon]="['fas', 'bullhorn']"></fa-icon>
 </div>
 
-
+<div class="musicAttribution"
+     *ngIf="showMusicAttribution"
+>
+  Music by Lesfm via Pixabay --
+  https://pixabay.com/music/elevator-music-elevator-music-bossa-nova-background-music-version-60s-10900/
+</div>
 
