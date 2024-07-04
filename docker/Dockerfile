@@ -12,7 +12,9 @@ RUN apt update -y && \
 
 WORKDIR /project
 ADD . /project
-ARG NX_NON_NATIVE_HASHE=true
+# https://stackoverflow.com/questions/77989039/error-cannot-find-module-nx-nx-linux-x64-gnu
+RUN rm package.json.lock \
+#NX_NON_NATIVE_HASHE=true
 RUN sed -i "s/AA\.BB\.CCCC/$(date +"%d.%m.%Y_%H:%M:%S")/" /project/src/environments/environment.prod.ts
 RUN sed -i "s/AA\.BB\.CCCC/$(date +"%d.%m.%Y_%H:%M:%S")/" /project/src/environments/environment.ts
 RUN npm install --no-audi && \
