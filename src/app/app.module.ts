@@ -17,42 +17,35 @@ import {MatInputModule} from "@angular/material/input";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import { BuildVersionDisplayComponent } from './components/build-version-display/build-version-display.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { TranslocoRootModule } from './transloco-root.module';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
 import {SettingsToolbarComponent} from "./settings-toolbar/settings-toolbar.component";
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    StatusLogoComponent,
-    TimeSelectComponent,
-    RunTimerComponent,
-    NadinLogoComponent,
-    FakeStatusComponent,
-    TimerProgressComponent,
-    BuildVersionDisplayComponent,
-    SettingsToolbarComponent,
-  ],
-  imports: [
-    MatFormFieldModule,
-    MatInputModule,
-    MatProgressBarModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    FontAwesomeModule,
-    AppRoutingModule,
-    MatTooltipModule,
-    FormsModule,
-    HttpClientModule,
-    TranslocoRootModule,
-    MatToolbarModule,
-    MatButtonModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
-})
+@NgModule({ declarations: [
+        AppComponent,
+        StatusLogoComponent,
+        TimeSelectComponent,
+        RunTimerComponent,
+        NadinLogoComponent,
+        FakeStatusComponent,
+        TimerProgressComponent,
+        BuildVersionDisplayComponent,
+        SettingsToolbarComponent,
+    ],
+    bootstrap: [AppComponent], imports: [MatFormFieldModule,
+        MatInputModule,
+        MatProgressBarModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        FontAwesomeModule,
+        AppRoutingModule,
+        MatTooltipModule,
+        FormsModule,
+        TranslocoRootModule,
+        MatToolbarModule,
+        MatButtonModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {
   constructor(private library: FaIconLibrary) {
     library.addIcons(faClock, faHistory, faBullhorn);
