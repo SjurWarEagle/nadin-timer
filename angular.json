@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "nadin-timer:build:production"
+              "buildTarget": "nadin-timer:build:production"
             },
             "development": {
-              "browserTarget": "nadin-timer:build:development"
+              "buildTarget": "nadin-timer:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "nadin-timer:build"
+            "buildTarget": "nadin-timer:build"
           }
         },
         "test": {
