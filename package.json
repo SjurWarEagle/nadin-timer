@@ -37,6 +37,8 @@
     "angular-shepherd": "^18.0.2",
     "flag-icons": "7.2.3",
     "rxjs": "~7.8.0",
+    "cookieconsent": "^3.1.1",
+    "ngx-cookieconsent": "^6.0.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.7"
   },
