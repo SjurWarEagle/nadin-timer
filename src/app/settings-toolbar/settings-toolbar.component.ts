@@ -1,6 +1,7 @@
 import {AfterViewInit, Component} from '@angular/core';
 import {TranslocoService} from "@ngneat/transloco";
 import {IntroJsService} from "../services/intro-js.service";
+import {CookieConsentService} from "../cookie-constent-service";
 
 @Component({
     selector: 'app-settings-toolbar',
@@ -10,16 +11,21 @@ import {IntroJsService} from "../services/intro-js.service";
 export class SettingsToolbarComponent implements AfterViewInit {
     constructor(
         private translate: TranslocoService,
-        private introService: IntroJsService
+        private introService: IntroJsService,
+        private cookieConsentService: CookieConsentService
     ) {
     }
 
 
-    public ngAfterViewInit(): void {
-        // noinspection JSIgnoredPromiseFromCall
-        this.introService.helpLanguage();
-    }
-
+  public ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.cookieConsentService.receivedCookieConsent.subscribe(consent => {
+        if (consent) {
+          this.introService.helpLanguage();
+        }
+      })
+    }, 10)
+  }
 
     public isLanguage(target: string): boolean {
         return this.translate.getActiveLang() === target;

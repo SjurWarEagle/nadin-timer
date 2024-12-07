@@ -10,4 +10,10 @@ if (environment.production) {
 
 platformBrowserDynamic()
   .bootstrapModule(AppModule)
+  // .then((moduleRef) => {
+  //   const injector = moduleRef.injector;
+  //   console.log("injector",injector);
+  //   Expose Angular injector globally
+    // (window as any).ngInjector = injector;
+  // })
   .catch((err) => console.error(err));

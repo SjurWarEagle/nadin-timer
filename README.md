@@ -17,3 +17,9 @@
 * Evil_Laugh_1-Timothy https://soundbible.com/grab.php?id=2096&type=mp3
 * Whistling.mp3 https://soundbible.com/778-Whistling.html
 * service-bell_daniel_simion.mp3.mp3 https://soundbible.com/2218-Service-Bell-Help.html
+
+## Cookie Consent
+* https://stackblitz.com/edit/angular-ivy-hmegok?file=src%2Fapp%2Fapp.component.ts
+
+## Ideas
+* https://codepen.io/jtrancozo/pen/MeBgxv

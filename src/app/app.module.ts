@@ -22,8 +22,6 @@ import {TranslocoRootModule} from './transloco-root.module';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
 import {SettingsToolbarComponent} from "./settings-toolbar/settings-toolbar.component";
-import {provideNgcCookieConsent} from "ngx-cookieconsent";
-import {cookieConfig} from "./cookieConfig";
 
 @NgModule({
   declarations: [
@@ -50,10 +48,10 @@ import {cookieConfig} from "./cookieConfig";
     FormsModule,
     TranslocoRootModule,
     MatToolbarModule,
-    MatButtonModule],
+    MatButtonModule,
+  ],
   providers: [
     provideHttpClient(withInterceptorsFromDi()),
-    provideNgcCookieConsent(cookieConfig),
   ]
 })
 export class AppModule {
