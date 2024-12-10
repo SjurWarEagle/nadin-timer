@@ -5,7 +5,8 @@ import {Subscription, timer} from 'rxjs';
     selector: 'app-timer-progress',
     templateUrl: './timer-progress.component.html',
     styleUrls: ['./timer-progress.component.scss'],
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class TimerProgressComponent implements OnInit, OnDestroy {
   @Input()

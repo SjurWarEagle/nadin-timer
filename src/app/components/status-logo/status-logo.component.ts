@@ -17,7 +17,8 @@ import {ThemeDeciderService} from '../../services/theme-decider.service';
             ]),
         ]),
     ],
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class StatusLogoComponent {
   @Input()

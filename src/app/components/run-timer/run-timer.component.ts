@@ -6,20 +6,21 @@ import {ThemeDeciderService} from "../../services/theme-decider.service";
 import {animate, keyframes, state, style, transition, trigger} from "@angular/animations";
 
 @Component({
-    selector: 'app-run-timer',
-    templateUrl: './run-timer.component.html',
-    styleUrls: ['./run-timer.component.scss'],
-    animations: [
-        trigger('startTimer', [
-            // ...
-            state('true', style({})),
-            state('false', style({})),
-            transition('* => *', [
-                animate('0s', keyframes([style({ transform: 'translateX(100%)' })])),
-                animate('30s', keyframes([style({ transform: 'translateX(-20%)' })])),
-            ]),
-        ])
-    ],
+  selector: 'app-run-timer',
+  templateUrl: './run-timer.component.html',
+  styleUrls: ['./run-timer.component.scss'],
+  animations: [
+    trigger('startTimer', [
+      // ...
+      state('true', style({})),
+      state('false', style({})),
+      transition('* => *', [
+        animate('0s', keyframes([style({transform: 'translateX(100%)'})])),
+        animate('30s', keyframes([style({transform: 'translateX(-20%)'})])),
+      ]),
+    ])
+  ],
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
   standalone: false
 })
 export class RunTimerComponent implements OnInit, OnDestroy {

@@ -10,6 +10,7 @@ import {CookieConsentService} from "../../cookie-constent-service";
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
     encapsulation: ViewEncapsulation.None,
+    // eslint-disable-next-line @angular-eslint/prefer-standalone
     standalone: false
 })
 export class AppComponent implements OnInit, OnDestroy {

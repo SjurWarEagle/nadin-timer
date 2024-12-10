@@ -8,7 +8,9 @@ import {CookieConsentService} from "../../cookie-constent-service";
     selector: 'app-time-select',
     templateUrl: './time-select.component.html',
     styleUrls: ['./time-select.component.scss'],
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
+
 })
 export class TimeSelectComponent implements AfterViewInit {
   public showCustomPanel = false;

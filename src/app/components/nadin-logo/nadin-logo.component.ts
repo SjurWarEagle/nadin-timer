@@ -5,7 +5,8 @@ import {ThemeDeciderService} from "../../services/theme-decider.service";
     selector: 'app-nadin-logo',
     templateUrl: './nadin-logo.component.html',
     styleUrls: ['./nadin-logo.component.scss'],
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class NadinLogoComponent {
 

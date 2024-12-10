@@ -5,7 +5,8 @@ import {environment} from "../../../environments/environment";
     selector: 'app-build-version-display',
     templateUrl: './build-version-display.component.html',
     styleUrls: ['./build-version-display.component.scss'],
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class BuildVersionDisplayComponent {
   public buildDate:string=environment.buildDateString;

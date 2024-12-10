@@ -26,8 +26,8 @@ import {FaIconLibrary, FontAwesomeModule} from "@fortawesome/angular-fontawesome
 
 @NgModule({
   declarations: [
-    SettingsToolbarComponent,
     AppComponent,
+    SettingsToolbarComponent,
     StatusLogoComponent,
     NadinLogoComponent,
     FakeStatusComponent,
