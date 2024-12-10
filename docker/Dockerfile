@@ -1,9 +1,9 @@
-FROM node:23 as buildstep
+FROM node:23.3.0 as buildstep
 RUN mkdir -p /project/
 RUN mkdir -p /project/dist/nadin-timer
 
-RUN apt update -y && \
-    apt install -y --no-install-recommends --no-install-suggests \
+RUN apt-get update -y && \
+    apt-get install -y --no-install-recommends --no-install-suggests \
     nginx \
     sed \
     ca-certificates &&\
@@ -24,6 +24,9 @@ RUN npm install --no-audi && \
     npm run build:prod && \
     rm -r node_modules
 
+#########
+# STAGE #
+#########
 FROM nginx:mainline-alpine
 WORKDIR /project
 COPY --from=buildstep /project/dist /project
