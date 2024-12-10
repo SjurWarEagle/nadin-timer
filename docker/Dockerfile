@@ -1,4 +1,4 @@
-FROM node:20 as buildstep
+FROM node:23 as buildstep
 RUN mkdir -p /project/
 RUN mkdir -p /project/dist/nadin-timer
 
@@ -14,7 +14,7 @@ WORKDIR /project
 ADD . /project
 
 # https://stackoverflow.com/questions/77989039/error-cannot-find-module-nx-nx-linux-x64-gnu
-RUN rm package-lock.json
+#RUN rm package-lock.json
 ARG NODE_OPTIONS=--max_old_space_size=4096
 
 RUN sed -i "s/AA\.BB\.CCCC/$(date +"%d.%m.%Y_%H:%M:%S")/" /project/src/environments/environment.prod.ts
