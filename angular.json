@@ -17,6 +17,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "allowedCommonJsDependencies": [
+              "chance",
+              "lodash"
+            ],
             "outputPath": {
               "base": "dist/nadin-timer"
             },
