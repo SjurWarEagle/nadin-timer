@@ -6,7 +6,6 @@ import {StatusLogoComponent} from './components/status-logo/status-logo.componen
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TimeSelectComponent} from './components/time-select/time-select.component';
 import {RunTimerComponent} from './components/run-timer/run-timer.component';
-import {FaIconLibrary, FontAwesomeModule,} from '@fortawesome/angular-fontawesome';
 import {faBullhorn, faClock, faHistory} from '@fortawesome/free-solid-svg-icons';
 import {NadinLogoComponent} from './components/nadin-logo/nadin-logo.component';
 import {FakeStatusComponent} from './components/fake-status/fake-status.component';
@@ -22,21 +21,26 @@ import {TranslocoRootModule} from './transloco-root.module';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
 import {SettingsToolbarComponent} from "./settings-toolbar/settings-toolbar.component";
+import {CommonModule} from "@angular/common";
+import {FaIconLibrary, FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 @NgModule({
   declarations: [
+    SettingsToolbarComponent,
     AppComponent,
     StatusLogoComponent,
-    TimeSelectComponent,
-    RunTimerComponent,
     NadinLogoComponent,
     FakeStatusComponent,
     TimerProgressComponent,
     BuildVersionDisplayComponent,
-    SettingsToolbarComponent,
+    TimeSelectComponent,
+    RunTimerComponent,
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [
+    AppComponent,
+  ],
   imports: [
+    CommonModule,
     MatFormFieldModule,
     MatInputModule,
     MatProgressBarModule,

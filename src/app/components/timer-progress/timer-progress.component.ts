@@ -2,9 +2,10 @@ import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Subscription, timer} from 'rxjs';
 
 @Component({
-  selector: 'app-timer-progress',
-  templateUrl: './timer-progress.component.html',
-  styleUrls: ['./timer-progress.component.scss'],
+    selector: 'app-timer-progress',
+    templateUrl: './timer-progress.component.html',
+    styleUrls: ['./timer-progress.component.scss'],
+    standalone: false
 })
 export class TimerProgressComponent implements OnInit, OnDestroy {
   @Input()

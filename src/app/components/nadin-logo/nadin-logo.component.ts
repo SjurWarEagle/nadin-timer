@@ -2,9 +2,10 @@ import {Component} from '@angular/core';
 import {ThemeDeciderService} from "../../services/theme-decider.service";
 
 @Component({
-  selector: 'app-nadin-logo',
-  templateUrl: './nadin-logo.component.html',
-  styleUrls: ['./nadin-logo.component.scss'],
+    selector: 'app-nadin-logo',
+    templateUrl: './nadin-logo.component.html',
+    styleUrls: ['./nadin-logo.component.scss'],
+    standalone: false
 })
 export class NadinLogoComponent {
 

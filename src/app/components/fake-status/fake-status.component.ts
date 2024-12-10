@@ -5,20 +5,21 @@ import {animate, keyframes, style, transition, trigger,} from '@angular/animatio
 import {ThemeDeciderService} from '../../services/theme-decider.service';
 
 @Component({
-  selector: 'app-fake-status',
-  templateUrl: './fake-status.component.html',
-  styleUrls: ['./fake-status.component.scss'],
-  animations: [
-    trigger('updatedText', [
-      transition('* => *', [
-        // reset
-        animate('0s', keyframes([style({transform: 'translateX(100%)'})])),
-        animate('30s', keyframes([style({transform: 'translateX(-20%)'})])),
-        // pause
-        animate('40s', keyframes([style({transform: 'translateX(-1000%)'})])),
-      ]),
-    ]),
-  ],
+    selector: 'app-fake-status',
+    templateUrl: './fake-status.component.html',
+    styleUrls: ['./fake-status.component.scss'],
+    animations: [
+        trigger('updatedText', [
+            transition('* => *', [
+                // reset
+                animate('0s', keyframes([style({ transform: 'translateX(100%)' })])),
+                animate('30s', keyframes([style({ transform: 'translateX(-20%)' })])),
+                // pause
+                animate('40s', keyframes([style({ transform: 'translateX(-1000%)' })])),
+            ]),
+        ]),
+    ],
+    standalone: false
 })
 export class FakeStatusComponent implements OnInit, OnDestroy {
   private usedTexts: string[] = [];

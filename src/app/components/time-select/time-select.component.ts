@@ -5,9 +5,10 @@ import {ThemeDeciderService} from '../../services/theme-decider.service';
 import {CookieConsentService} from "../../cookie-constent-service";
 
 @Component({
-  selector: 'app-time-select',
-  templateUrl: './time-select.component.html',
-  styleUrls: ['./time-select.component.scss']
+    selector: 'app-time-select',
+    templateUrl: './time-select.component.html',
+    styleUrls: ['./time-select.component.scss'],
+    standalone: false
 })
 export class TimeSelectComponent implements AfterViewInit {
   public showCustomPanel = false;

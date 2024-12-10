@@ -6,10 +6,11 @@ import {run} from "vanilla-cookieconsent";
 import {CookieConsentService} from "../../cookie-constent-service";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  encapsulation: ViewEncapsulation.None
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class AppComponent implements OnInit, OnDestroy {
   private subscriptionParameter?: Subscription;

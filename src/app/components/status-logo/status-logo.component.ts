@@ -3,20 +3,21 @@ import {animate, keyframes, state, style, transition, trigger,} from '@angular/a
 import {ThemeDeciderService} from '../../services/theme-decider.service';
 
 @Component({
-  selector: 'app-status-logo',
-  templateUrl: './status-logo.component.html',
-  styleUrls: ['./status-logo.component.scss'],
-  animations: [
-    trigger('secondsUpdated', [
-      // ...
-      state('uneven', style({})),
-      state('even', style({})),
-      transition('* => *', [
-        animate('0.5s', keyframes([style({transform: 'translateY(-10%) scale(1.25)'})])),
-        animate('0.5s', keyframes([style({transform: 'translateY(-10%) scale(0.75)'})])),
-      ]),
-    ]),
-  ],
+    selector: 'app-status-logo',
+    templateUrl: './status-logo.component.html',
+    styleUrls: ['./status-logo.component.scss'],
+    animations: [
+        trigger('secondsUpdated', [
+            // ...
+            state('uneven', style({})),
+            state('even', style({})),
+            transition('* => *', [
+                animate('0.5s', keyframes([style({ transform: 'translateY(-10%) scale(1.25)' })])),
+                animate('0.5s', keyframes([style({ transform: 'translateY(-10%) scale(0.75)' })])),
+            ]),
+        ]),
+    ],
+    standalone: false
 })
 export class StatusLogoComponent {
   @Input()
