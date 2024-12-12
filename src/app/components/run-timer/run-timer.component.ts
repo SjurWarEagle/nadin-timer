@@ -72,7 +72,7 @@ export class RunTimerComponent implements OnInit, OnDestroy {
   }
 
   public playWaitingMusic(): void {
-    timer(10_000).subscribe(x => {
+    timer(20_000).subscribe(x => {
       this.audioElevator = new Audio();
       this.audioElevator.volume = 0.5;
       this.audioElevator.src = '../../assets/sounds/elevator-music-bossa-nova-background-music-version-60s-10900.mp3';
