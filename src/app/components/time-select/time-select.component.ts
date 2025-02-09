@@ -1,6 +1,5 @@
 import {AfterViewInit, Component} from '@angular/core';
 import {Router} from '@angular/router';
-import {IntroJsService} from '../../services/intro-js.service';
 import {ThemeDeciderService} from '../../services/theme-decider.service';
 import {CookieConsentService} from "../../cookie-constent-service";
 
@@ -17,7 +16,6 @@ export class TimeSelectComponent implements AfterViewInit {
   public customMinutes = 5;
 
   constructor(private router: Router,
-              private introService: IntroJsService,
               private cookieConsentService: CookieConsentService,
               private themeDeciderService: ThemeDeciderService
   ) {
@@ -83,7 +81,6 @@ export class TimeSelectComponent implements AfterViewInit {
     if (this.showCustomPanel) {
       this.cookieConsentService.receivedCookieConsent.subscribe(consent => {
         if (consent) {
-          this.introService.helpCustomTime();
         }
       })
     }
@@ -98,7 +95,6 @@ export class TimeSelectComponent implements AfterViewInit {
     setTimeout(() => {
       this.cookieConsentService.receivedCookieConsent.subscribe(consent => {
         if (consent) {
-          this.introService.helpIntro();
         }
       })
     }, 10)

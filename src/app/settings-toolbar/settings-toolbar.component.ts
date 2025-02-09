@@ -1,6 +1,5 @@
 import {AfterViewInit, Component} from '@angular/core';
 import {TranslocoService} from "@ngneat/transloco";
-import {IntroJsService} from "../services/intro-js.service";
 import {CookieConsentService} from "../cookie-constent-service";
 
 @Component({
@@ -11,7 +10,7 @@ import {CookieConsentService} from "../cookie-constent-service";
   standalone: false
 })
 export class SettingsToolbarComponent implements AfterViewInit {
-  constructor(private translate: TranslocoService, private introService: IntroJsService, private cookieConsentService: CookieConsentService) {
+  constructor(private translate: TranslocoService, private cookieConsentService: CookieConsentService) {
   }
 
 
@@ -19,7 +18,6 @@ export class SettingsToolbarComponent implements AfterViewInit {
     setTimeout(() => {
       this.cookieConsentService.receivedCookieConsent.subscribe(consent => {
         if (consent) {
-          this.introService.helpLanguage();
         }
       })
     }, 10)

@@ -34,7 +34,6 @@
     "@fortawesome/angular-fontawesome": "^1.0.0",
     "@fortawesome/free-solid-svg-icons": "6.7.1",
     "@ngneat/transloco": "^6.0.4",
-    "angular-shepherd": "^18.0.2",
     "flag-icons": "7.2.3",
     "rxjs": "~7.8.0",
     "vanilla-cookieconsent": "^3.0.1",

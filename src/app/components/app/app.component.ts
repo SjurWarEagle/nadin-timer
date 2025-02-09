@@ -16,8 +16,6 @@ import {CookieConsentService} from "../../cookie-constent-service";
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   private subscriptionParameter?: Subscription;
 
-  //NOTE: It is highly recommended to inject ShepherdService into your app.component.ts.
-  // Injecting it at the app level ensures you only create one instance of Shepherd.
   constructor(private route: ActivatedRoute,
               private themeDeciderService: ThemeDeciderService,
               private cookieConsentService: CookieConsentService,
