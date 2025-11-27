@@ -144,29 +144,4 @@ export class ThemeDeciderService {
     return 'Spring';
   }
 
-
-  get possibleFakeStatus(): string[] {
-    switch (this.application.toLowerCase()) {
-      case 'nadin':
-        return [
-          '',
-        ];
-      case 'ldb':
-        return [
-          '',
-        ];
-      case 'vw':
-        return [
-          '',
-        ];
-      case 'poi':
-        return [
-          '',
-        ];
-      default:
-        console.error(`Unknown application '${this.application}'`);
-        break;
-    }
-    return [];
-  }
 }

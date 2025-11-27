@@ -8,7 +8,6 @@ import {TimeSelectComponent} from './components/time-select/time-select.componen
 import {RunTimerComponent} from './components/run-timer/run-timer.component';
 import {faBullhorn, faClock, faHistory} from '@fortawesome/free-solid-svg-icons';
 import {NadinLogoComponent} from './components/nadin-logo/nadin-logo.component';
-import {FakeStatusComponent} from './components/fake-status/fake-status.component';
 import {FormsModule} from '@angular/forms';
 import {TimerProgressComponent} from "./components/timer-progress/timer-progress.component";
 import {MatFormFieldModule} from "@angular/material/form-field";
@@ -30,7 +29,6 @@ import {FaIconLibrary, FontAwesomeModule} from "@fortawesome/angular-fontawesome
     SettingsToolbarComponent,
     StatusLogoComponent,
     NadinLogoComponent,
-    FakeStatusComponent,
     TimerProgressComponent,
     BuildVersionDisplayComponent,
     TimeSelectComponent,
