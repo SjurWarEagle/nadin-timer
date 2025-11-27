@@ -15,6 +15,7 @@
     "git:commit": "git commit -m \"update dependencies\"",
     "git:add": "git add package.json package-lock.json",
     "git:push": "git push",
+    "dependencies:ci": "npm ci",
     "dependencies:install": "npm install",
     "update:dependencies and build": "run-s ncu dependencies:install build git"
   },

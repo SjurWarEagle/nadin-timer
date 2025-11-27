@@ -4,6 +4,8 @@ import {Subscription, timer} from 'rxjs';
 import chance from 'chance';
 import {ThemeDeciderService} from "../../services/theme-decider.service";
 import {animate, keyframes, state, style, transition, trigger} from "@angular/animations";
+import {MatDialog} from "@angular/material/dialog";
+import {AlertDialogComponent} from "./alert-dialog-component";
 
 @Component({
   selector: 'app-run-timer',
@@ -28,13 +30,14 @@ export class RunTimerComponent implements OnInit, OnDestroy {
   public seconds = '00';
   public minutes = '00';
   private timerTimer?: Subscription;
+  public wasManuallyTriggeredShortly = false;
   public targetTime: number = 0;
   public startTime: number = 0;
   public showMusicAttribution: boolean = false;
   private alarmTriggered: boolean = false;
   private audioElevator: HTMLAudioElement = new Audio();
 
-  constructor(private route: ActivatedRoute, public themeDeciderService: ThemeDeciderService) {
+  constructor(private route: ActivatedRoute, public themeDeciderService: ThemeDeciderService, public msgDialog: MatDialog) {
   }
 
   public nullSafeString(value: string | null): string {
@@ -45,8 +48,8 @@ export class RunTimerComponent implements OnInit, OnDestroy {
     this.themeDeciderService.setIfValid(this.nullSafeString(this.route.snapshot.paramMap.get('theme')));
     this.themeDeciderService.application = this.nullSafeString(this.route.snapshot.paramMap.get('application'));
     this.themeDeciderService.language = this.nullSafeString(this.route.snapshot.paramMap.get('lang'));
-    this.targetTime = parseInt(this.nullSafeString(this.route.snapshot.paramMap.get('until')), 10);
-    this.startTime = parseInt(this.nullSafeString(this.route.snapshot.paramMap.get('startTime')), 10);
+    this.targetTime = Number.parseInt(this.nullSafeString(this.route.snapshot.paramMap.get('until')), 10);
+    this.startTime = Number.parseInt(this.nullSafeString(this.route.snapshot.paramMap.get('startTime')), 10);
 
     // noinspection TypeScriptValidateJSTypes
     this.timerTimer = timer(0, 100).subscribe(() => {
@@ -68,7 +71,17 @@ export class RunTimerComponent implements OnInit, OnDestroy {
   }
 
   public triggerAlarm(): void {
-    this.playAudio();
+    if (this.wasManuallyTriggeredShortly) {
+      this.msgDialog.open(AlertDialogComponent, {
+        data: {message: 'Easy my Padavan!'}
+      });
+    } else {
+      this.wasManuallyTriggeredShortly = true;
+      setTimeout(()=>{
+        this.wasManuallyTriggeredShortly = false;
+      },10_000)
+      this.playAudio();
+    }
   }
 
   public playWaitingMusic(): void {
