@@ -130,9 +130,10 @@ export class ThemeDeciderService {
   private generateRandomTheme(): string {
 
     const now = new Date();
-    if (now.getMonth() === 3) {
-      return 'Easter';
-    } else if (now.getMonth() >= 9 && now.getMonth() < 11) {
+//    if (now.getMonth() === 3) {
+//      return 'Easter';
+//    } else
+    if (now.getMonth() >= 9 && now.getMonth() < 11) {
       return 'Autumn';
     } else if (now.getMonth() >= 11 || now.getMonth() <= 0) {
       return 'Winter';
