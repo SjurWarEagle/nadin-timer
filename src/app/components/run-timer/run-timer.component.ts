@@ -117,6 +117,17 @@ export class RunTimerComponent implements OnInit, OnDestroy {
     if (this.audioStopped) {
       return;
     }
+
+    // Stop any existing audio before creating new
+    this.audioAlarm.pause();
+    this.audioAlarm.currentTime = 0;
+    this.audioAlarm.src = '';
+
+    // Cancel any previous waiting music timer
+    if (this.waitingMusicDelayTimer) {
+      this.waitingMusicDelayTimer.unsubscribe();
+    }
+
     this.audioAlarm = new Audio();
 
     const rnd = this.getWeightedRandom();
