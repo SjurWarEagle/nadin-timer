@@ -19,7 +19,7 @@ ARG NODE_OPTIONS=--max_old_space_size=4096
 
 RUN sed -i "s/AA\.BB\.CCCC/$(date +"%d.%m.%Y_%H:%M:%S")/" /project/src/environments/environment.prod.ts
 RUN sed -i "s/AA\.BB\.CCCC/$(date +"%d.%m.%Y_%H:%M:%S")/" /project/src/environments/environment.ts
-RUN npm install --no-audi && \
+RUN npm install --legacy-peer-deps --no-audi && \
     npm run lint:prod && \
     npm run build:prod && \
     rm -r node_modules

@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, inject} from '@angular/core';
 import {animate, keyframes, state, style, transition, trigger,} from '@angular/animations';
 import {ThemeDeciderService} from '../../services/theme-decider.service';
 
@@ -26,9 +26,7 @@ export class StatusLogoComponent {
   @Input()
   public minutes: string = '';
 
-
-  constructor(private themeDeciderService: ThemeDeciderService) {
-  }
+  private themeDeciderService = inject(ThemeDeciderService);
 
   public isDone(): boolean {
     return this.seconds === '00' && this.minutes === '00';

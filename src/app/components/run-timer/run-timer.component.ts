@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, inject} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Subscription, timer} from 'rxjs';
 import chance from 'chance';
@@ -37,8 +37,9 @@ export class RunTimerComponent implements OnInit, OnDestroy {
   private alarmTriggered: boolean = false;
   private audioElevator: HTMLAudioElement = new Audio();
 
-  constructor(private route: ActivatedRoute, public themeDeciderService: ThemeDeciderService, public msgDialog: MatDialog) {
-  }
+  private route = inject(ActivatedRoute);
+  public themeDeciderService = inject(ThemeDeciderService);
+  public msgDialog = inject(MatDialog);
 
   public nullSafeString(value: string | null): string {
     return value ? value : '';

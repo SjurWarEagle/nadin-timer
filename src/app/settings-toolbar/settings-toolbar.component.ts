@@ -1,4 +1,4 @@
-import {AfterViewInit, Component} from '@angular/core';
+import {AfterViewInit, Component, inject} from '@angular/core';
 import {TranslocoService} from "@ngneat/transloco";
 import {CookieConsentService} from "../cookie-constent-service";
 
@@ -10,8 +10,8 @@ import {CookieConsentService} from "../cookie-constent-service";
   standalone: false
 })
 export class SettingsToolbarComponent implements AfterViewInit {
-  constructor(private translate: TranslocoService, private cookieConsentService: CookieConsentService) {
-  }
+  private translate = inject(TranslocoService);
+  private cookieConsentService = inject(CookieConsentService);
 
 
   public ngAfterViewInit(): void {

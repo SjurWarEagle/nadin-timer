@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {ThemeDeciderService} from "../../services/theme-decider.service";
 
 @Component({
@@ -10,8 +10,7 @@ import {ThemeDeciderService} from "../../services/theme-decider.service";
 })
 export class NadinLogoComponent {
 
-  constructor(private themeDeciderService: ThemeDeciderService) {
-  }
+  private themeDeciderService = inject(ThemeDeciderService);
 
 
   public getTheme(): string {

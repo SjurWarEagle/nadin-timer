@@ -1,4 +1,4 @@
-import {AfterViewInit, Component} from '@angular/core';
+import {AfterViewInit, Component, inject} from '@angular/core';
 import {Router} from '@angular/router';
 import {ThemeDeciderService} from '../../services/theme-decider.service';
 import {CookieConsentService} from "../../cookie-constent-service";
@@ -15,11 +15,9 @@ export class TimeSelectComponent implements AfterViewInit {
   public showCustomPanel = false;
   public customMinutes = 5;
 
-  constructor(private router: Router,
-              private cookieConsentService: CookieConsentService,
-              private themeDeciderService: ThemeDeciderService
-  ) {
-  }
+  private router = inject(Router);
+  private cookieConsentService = inject(CookieConsentService);
+  private themeDeciderService = inject(ThemeDeciderService);
 
   get showDebug(): boolean {
     return false;

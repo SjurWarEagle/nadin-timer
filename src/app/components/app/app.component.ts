@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit, ViewEncapsulation, inject} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {ThemeDeciderService} from "../../services/theme-decider.service";
@@ -16,11 +16,9 @@ import {CookieConsentService} from "../../cookie-constent-service";
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   private subscriptionParameter?: Subscription;
 
-  constructor(private route: ActivatedRoute,
-              private themeDeciderService: ThemeDeciderService,
-              private cookieConsentService: CookieConsentService,
-  ) {
-  }
+  private route = inject(ActivatedRoute);
+  private themeDeciderService = inject(ThemeDeciderService);
+  private cookieConsentService = inject(CookieConsentService);
 
   public ngOnDestroy(): void {
     if (this.subscriptionParameter) {
