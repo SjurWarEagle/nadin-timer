@@ -12,6 +12,7 @@ export class CookieConsentService {
   constructor() {
   }
 
+  // fallow-ignore-next-line unused-class-members
   public getCookieConsentConfig(): CookieConsentConfig {
     return {
       // autoClearCookies: true,

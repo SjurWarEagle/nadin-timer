@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "pre-commit": "run-s lint e2e"
+  }
+}

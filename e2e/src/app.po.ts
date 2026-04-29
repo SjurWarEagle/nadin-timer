@@ -1,3 +1,4 @@
+// fallow-ignore-next-line unused-files
 import { browser, by, element } from 'protractor';
 
 export class AppPage {

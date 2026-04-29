@@ -7,6 +7,23 @@ import {TranslocoService} from "@ngneat/transloco";
 })
 
 export class ThemeDeciderService {
+  private static readonly VALID_THEMES = new Set(['Winter', 'Autumn', 'Easter', 'Spring', 'Summer']);
+
+  private static readonly APP_CONFIGS: Record<string, { logo: string; logoRunning: string; logoFinished: string; title: string }> = {
+    nadin: { logo: 'Nadin_Logo.svg', logoRunning: 'Nadin_Logo.svg', logoFinished: 'Nadin_Logo.svg', title: 'Meeting Timer' },
+    ldb: { logo: 'ldb.png', logoRunning: 'ldb-running.png', logoFinished: 'ldb-done.png', title: 'Meeting Timer' },
+    poi: { logo: 'poi.jpg', logoRunning: 'poi.jpg', logoFinished: 'poi.jpg', title: 'Meeting Timer' },
+    vw: { logo: 'vw.png', logoRunning: 'vw.png', logoFinished: 'vw.png', title: 'Meeting Timer' },
+    gremlins: { logo: 'gremlins.png', logoRunning: 'gremlins.png', logoFinished: 'gremlins.png', title: 'Meeting Timer' },
+  };
+
+  private static readonly SEASON_BY_MONTH: string[] = [
+    'Winter', 'Winter', 'Spring',  // Jan, Feb, Mar
+    'Spring', 'Spring', 'Summer',   // Apr, May, Jun
+    'Summer', 'Summer', 'Autumn',    // Jul, Aug, Sep
+    'Autumn', 'Autumn', 'Winter'    // Oct, Nov, Dec
+  ];
+
   get language(): string {
     return this.translate.getActiveLang();
   }
@@ -23,11 +40,7 @@ export class ThemeDeciderService {
   constructor() {
     this.myAppLogo = 'Nadin_Logo.svg';
 
-    const deviceLanguage = window?.navigator.language?.substring(
-      0,
-      2
-    )
-
+    const deviceLanguage = window?.navigator.language?.substring(0, 2);
     this.translate.setActiveLang(deviceLanguage);
   }
 
@@ -62,43 +75,15 @@ export class ThemeDeciderService {
 
   set application(value: string) {
     this.myApplication = value;
-    switch (this.application.toLowerCase()) {
-      case 'nadin':
-        this.myAppLogo = 'Nadin_Logo.svg';
-        this.myAppLogo = 'Nadin_Logo.svg';
-        this.myAppLogoFinished = 'Nadin_Logo.svg';
-        this.titleService.setTitle("Meeting Timer")
-        break;
-      case 'ldb':
-        this.myAppLogo = 'ldb.png';
-        this.myAppLogo = 'ldb-running.png';
-        this.myAppLogoFinished = 'ldb-done.png';
-        this.titleService.setTitle("Meeting Timer")
-        break;
-      case 'poi':
-        this.myAppLogo = 'poi.jpg';
-        this.myAppLogo = 'poi.jpg';
-        this.myAppLogoFinished = 'poi.jpg';
-        this.titleService.setTitle("Meeting Timer")
-        break;
-      case 'vw':
-        this.myAppLogo = 'vw.png';
-        this.myAppLogoFinished = this.myAppLogo;
-        this.titleService.setTitle("Meeting Timer")
-        break;
-      case 'gremlins':
-        this.myAppLogo = 'gremlins.png';
-        this.myAppLogoFinished = this.myAppLogo;
-        this.titleService.setTitle("Meeting Timer")
-        break;
-      default:
-        console.error(`Unknown application '${this.application}'`);
-        break;
+    const config = ThemeDeciderService.APP_CONFIGS[value.toLowerCase()];
+    if (config) {
+      this.myAppLogo = config.logoRunning;
+      this.myAppLogoFinished = config.logoFinished;
+      this.titleService.setTitle(config.title);
+    } else {
+      console.error(`Unknown application '${value}'`);
     }
-    // console.log(this.application.toLowerCase());
-    // console.log(this.myAppLogo);
   }
-
 
   get application(): string {
     if (!this.myApplication) {
@@ -111,38 +96,15 @@ export class ThemeDeciderService {
     if (!newTheme) {
       return;
     }
-    if (newTheme === 'Winter') {
-      this.myTheme = newTheme;
-    } else if (newTheme === 'Autumn') {
-      this.myTheme = newTheme;
-    } else if (newTheme === 'Easter') {
-      this.myTheme = newTheme;
-    } else if (newTheme === 'Spring') {
-      this.myTheme = newTheme;
-    } else if (newTheme === 'Summer') {
+    if (ThemeDeciderService.VALID_THEMES.has(newTheme)) {
       this.myTheme = newTheme;
     } else {
       console.log(`Invalid theme '${newTheme}' ignoring.`);
     }
-    console.log(`Using theme '${this.myTheme}'.`);
   }
 
   private generateRandomTheme(): string {
-
-    const now = new Date();
-//    if (now.getMonth() === 3) {
-//      return 'Easter';
-//    } else
-    if (now.getMonth() >= 9 && now.getMonth() < 11) {
-      return 'Autumn';
-    } else if (now.getMonth() >= 11 || now.getMonth() <= 0) {
-      return 'Winter';
-    } else if (now.getMonth() < 3) {
-      return 'Spring';
-    } else if (now.getMonth() >= 4 || now.getMonth() <= 9) {
-      return 'Summer';
-    }
-    return 'Spring';
+    const month = new Date().getMonth();
+    return ThemeDeciderService.SEASON_BY_MONTH[month];
   }
-
 }

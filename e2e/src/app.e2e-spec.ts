@@ -1,3 +1,4 @@
+// fallow-ignore-next-line unused-files
 import { AppPage } from './app.po';
 import { browser, logging } from 'protractor';
 
