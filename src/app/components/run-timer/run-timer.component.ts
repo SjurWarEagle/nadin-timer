@@ -164,11 +164,20 @@ export class RunTimerComponent implements OnInit, OnDestroy {
   }
 
   public stopAllAudio(): void {
+    // Set flag FIRST - this prevents any new audio from starting
     this.audioStopped = true;
-    this.audioElevator.pause();
-    this.audioElevator.src = '';
-    this.audioAlarm.pause();
-    this.audioAlarm.src = '';
+
+    // Then stop all audio elements
+    if (this.audioAlarm) {
+      this.audioAlarm.pause();
+      this.audioAlarm.currentTime = 0;  // Reset to beginning
+      this.audioAlarm.src = '';
+    }
+    if (this.audioElevator) {
+      this.audioElevator.pause();
+      this.audioElevator.currentTime = 0;  // Reset to beginning
+      this.audioElevator.src = '';
+    }
   }
 
   public ngOnDestroy(): void {
