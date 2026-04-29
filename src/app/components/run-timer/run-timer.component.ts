@@ -30,12 +30,14 @@ export class RunTimerComponent implements OnInit, OnDestroy {
   public seconds = '00';
   public minutes = '00';
   private timerTimer?: Subscription;
+  private waitingMusicTimer?: Subscription;
   public wasManuallyTriggeredShortly = false;
   public targetTime: number = 0;
   public startTime: number = 0;
   public showMusicAttribution: boolean = false;
   private alarmTriggered: boolean = false;
   private audioElevator: HTMLAudioElement = new Audio();
+  private audioAlarm: HTMLAudioElement = new Audio();
 
   private route = inject(ActivatedRoute);
   public themeDeciderService = inject(ThemeDeciderService);
@@ -101,27 +103,27 @@ export class RunTimerComponent implements OnInit, OnDestroy {
   }
 
   public playAudio(): void {
-    const audio = new Audio();
+    this.audioAlarm = new Audio();
 
     const rnd = this.getWeightedRandom();
     switch (rnd) {
       case 'whistle':
-        audio.src = '../../assets/sounds/Whistling.mp3';
+        this.audioAlarm.src = '../../assets/sounds/Whistling.mp3';
         break;
       case 'alarm':
-        audio.src = '../../assets/sounds/alarm.wav';
+        this.audioAlarm.src = '../../assets/sounds/alarm.wav';
         break;
       case 'bell':
-        audio.src = '../../assets/sounds/service-bell.mp3';
+        this.audioAlarm.src = '../../assets/sounds/service-bell.mp3';
         break;
       default:
-        audio.src = '../../assets/sounds/alarm.wav';
+        this.audioAlarm.src = '../../assets/sounds/alarm.wav';
 
     }
-    audio.load();
-    audio.play().then(r => {
+    this.audioAlarm.load();
+    this.audioAlarm.play().then(r => {
     });
-    timer(1_000).subscribe(() => {
+    this.waitingMusicTimer = timer(1_000).subscribe(() => {
       this.playWaitingMusic()
     })
   }
@@ -150,6 +152,13 @@ export class RunTimerComponent implements OnInit, OnDestroy {
     if (this.timerTimer) {
       this.timerTimer.unsubscribe();
     }
+    if (this.waitingMusicTimer) {
+      this.waitingMusicTimer.unsubscribe();
+    }
     this.stopElevatorMusic();
+    if (this.audioAlarm) {
+      this.audioAlarm.pause();
+      this.audioAlarm.src = '';
+    }
   }
 }
