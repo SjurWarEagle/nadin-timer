@@ -54,10 +54,10 @@ export class RunTimerComponent implements OnInit, OnDestroy {
 
     // noinspection TypeScriptValidateJSTypes
     this.timerTimer = timer(0, 100).subscribe(() => {
-      const now: Date = new Date(Date.now());
-      const date: Date = new Date(this.targetTime - now.getTime());
+      const now = Date.now();
+      const remainingMs = this.targetTime - now;
 
-      if (this.targetTime < now.getTime()) {
+      if (remainingMs <= 0) {
         this.seconds = '00';
         this.minutes = '00';
         if (!this.alarmTriggered) {
@@ -65,8 +65,11 @@ export class RunTimerComponent implements OnInit, OnDestroy {
           this.playAudio();
         }
       } else {
-        this.seconds = '' + date.getSeconds().toString().padStart(2, '0');
-        this.minutes = '' + (date.getMinutes() + (date.getHours() - 1) * 60).toString().padStart(2, '0');
+        const totalSeconds = Math.floor(remainingMs / 1000);
+        const mins = Math.floor(totalSeconds / 60);
+        const secs = totalSeconds % 60;
+        this.seconds = secs.toString().padStart(2, '0');
+        this.minutes = mins.toString().padStart(2, '0');
       }
     });
   }
