@@ -67,29 +67,29 @@ export class ThemeDeciderService {
         this.myAppLogo = 'Nadin_Logo.svg';
         this.myAppLogo = 'Nadin_Logo.svg';
         this.myAppLogoFinished = 'Nadin_Logo.svg';
-        this.titleService.setTitle("Nadin Timer")
+        this.titleService.setTitle("Meeting Timer")
         break;
       case 'ldb':
         this.myAppLogo = 'ldb.png';
         this.myAppLogo = 'ldb-running.png';
         this.myAppLogoFinished = 'ldb-done.png';
-        this.titleService.setTitle("LDB Timer")
+        this.titleService.setTitle("Meeting Timer")
         break;
       case 'poi':
         this.myAppLogo = 'poi.jpg';
         this.myAppLogo = 'poi.jpg';
         this.myAppLogoFinished = 'poi.jpg';
-        this.titleService.setTitle("Porsche Informatik Timer")
+        this.titleService.setTitle("Meeting Timer")
         break;
       case 'vw':
         this.myAppLogo = 'vw.png';
         this.myAppLogoFinished = this.myAppLogo;
-        this.titleService.setTitle("VW Timer")
+        this.titleService.setTitle("Meeting Timer")
         break;
       case 'gremlins':
         this.myAppLogo = 'gremlins.png';
         this.myAppLogoFinished = this.myAppLogo;
-        this.titleService.setTitle("Gremlins Timer")
+        this.titleService.setTitle("Meeting Timer")
         break;
       default:
         console.error(`Unknown application '${this.application}'`);
