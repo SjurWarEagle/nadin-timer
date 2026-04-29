@@ -38,6 +38,7 @@ export class RunTimerComponent implements OnInit, OnDestroy {
   private alarmTriggered: boolean = false;
   private audioElevator: HTMLAudioElement = new Audio();
   private audioAlarm: HTMLAudioElement = new Audio();
+  private audioStopped: boolean = false;
 
   private route = inject(ActivatedRoute);
   public themeDeciderService = inject(ThemeDeciderService);
@@ -48,6 +49,7 @@ export class RunTimerComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
+    this.audioStopped = false;
     this.themeDeciderService.setIfValid(this.nullSafeString(this.route.snapshot.paramMap.get('theme')));
     this.themeDeciderService.application = this.nullSafeString(this.route.snapshot.paramMap.get('application'));
     this.themeDeciderService.language = this.nullSafeString(this.route.snapshot.paramMap.get('lang'));
@@ -56,6 +58,9 @@ export class RunTimerComponent implements OnInit, OnDestroy {
 
     // noinspection TypeScriptValidateJSTypes
     this.timerTimer = timer(0, 100).subscribe(() => {
+      if (this.audioStopped) {
+        return;
+      }
       const now = Date.now();
       const remainingMs = this.targetTime - now;
 
@@ -91,10 +96,16 @@ export class RunTimerComponent implements OnInit, OnDestroy {
   }
 
   public playWaitingMusic(): void {
+    if (this.audioStopped) {
+      return;
+    }
     this.waitingMusicDelayTimer = timer(20_000).subscribe(x => {
-      this.audioElevator = new Audio();
-      this.audioElevator.volume = 0.5;
+      if (this.audioStopped) {
+        return;
+      }
+      // Reuse existing audio element, just update src
       this.audioElevator.src = '../../assets/sounds/elevator-music-bossa-nova-background-music-version-60s-10900.mp3';
+      this.audioElevator.volume = 0.5;
       this.showMusicAttribution = true;
       this.audioElevator.load();
       this.audioElevator.play().then(r => {
@@ -103,6 +114,9 @@ export class RunTimerComponent implements OnInit, OnDestroy {
   }
 
   public playAudio(): void {
+    if (this.audioStopped) {
+      return;
+    }
     this.audioAlarm = new Audio();
 
     const rnd = this.getWeightedRandom();
@@ -150,6 +164,7 @@ export class RunTimerComponent implements OnInit, OnDestroy {
   }
 
   public stopAllAudio(): void {
+    this.audioStopped = true;
     this.audioElevator.pause();
     this.audioElevator.src = '';
     this.audioAlarm.pause();
@@ -157,12 +172,14 @@ export class RunTimerComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
+    // Stop audio FIRST before unsubscribing - timers may have already fired
+    this.stopAllAudio();
+
     if (this.timerTimer) {
       this.timerTimer.unsubscribe();
     }
     if (this.waitingMusicDelayTimer) {
       this.waitingMusicDelayTimer.unsubscribe();
     }
-    this.stopAllAudio();
   }
 }
