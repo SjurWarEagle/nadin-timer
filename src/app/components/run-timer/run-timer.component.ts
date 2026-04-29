@@ -30,7 +30,7 @@ export class RunTimerComponent implements OnInit, OnDestroy {
   public seconds = '00';
   public minutes = '00';
   private timerTimer?: Subscription;
-  private waitingMusicTimer?: Subscription;
+  private waitingMusicDelayTimer?: Subscription;
   public wasManuallyTriggeredShortly = false;
   public targetTime: number = 0;
   public startTime: number = 0;
@@ -91,7 +91,7 @@ export class RunTimerComponent implements OnInit, OnDestroy {
   }
 
   public playWaitingMusic(): void {
-    timer(20_000).subscribe(x => {
+    this.waitingMusicDelayTimer = timer(20_000).subscribe(x => {
       this.audioElevator = new Audio();
       this.audioElevator.volume = 0.5;
       this.audioElevator.src = '../../assets/sounds/elevator-music-bossa-nova-background-music-version-60s-10900.mp3';
@@ -123,7 +123,7 @@ export class RunTimerComponent implements OnInit, OnDestroy {
     this.audioAlarm.load();
     this.audioAlarm.play().then(r => {
     });
-    this.waitingMusicTimer = timer(1_000).subscribe(() => {
+    this.waitingMusicDelayTimer = timer(1_000).subscribe(() => {
       this.playWaitingMusic()
     })
   }
@@ -145,20 +145,24 @@ export class RunTimerComponent implements OnInit, OnDestroy {
   }
 
   public stopElevatorMusic(): void {
-    this.audioElevator.pause()
+    this.audioElevator.pause();
+    this.audioElevator.src = '';
+  }
+
+  public stopAllAudio(): void {
+    this.audioElevator.pause();
+    this.audioElevator.src = '';
+    this.audioAlarm.pause();
+    this.audioAlarm.src = '';
   }
 
   public ngOnDestroy(): void {
     if (this.timerTimer) {
       this.timerTimer.unsubscribe();
     }
-    if (this.waitingMusicTimer) {
-      this.waitingMusicTimer.unsubscribe();
+    if (this.waitingMusicDelayTimer) {
+      this.waitingMusicDelayTimer.unsubscribe();
     }
-    this.stopElevatorMusic();
-    if (this.audioAlarm) {
-      this.audioAlarm.pause();
-      this.audioAlarm.src = '';
-    }
+    this.stopAllAudio();
   }
 }
