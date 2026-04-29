@@ -19,7 +19,7 @@ export class NadinLogoComponent {
 
   public getBackgroundImageUrl(): any {
     return {
-      'background-image': 'url(../../assets/season/' + this.getTheme() + '/office.png)'
+      'background-image': 'url(../../assets/season/' + this.getTheme()+'/' + this.themeDeciderService.appLogo + ')'
     };
   }
 

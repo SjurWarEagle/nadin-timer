@@ -10,7 +10,8 @@ export class ThemeDeciderService {
   private static readonly VALID_THEMES = new Set(['Winter', 'Autumn', 'Easter', 'Spring', 'Summer']);
 
   private static readonly APP_CONFIGS: Record<string, { logo: string; logoRunning: string; logoFinished: string; title: string }> = {
-    nadin: { logo: 'Nadin_Logo.svg', logoRunning: 'Nadin_Logo.svg', logoFinished: 'Nadin_Logo.svg', title: 'Meeting Timer' },
+    default: { logo: 'office.png', logoRunning: 'office.png', logoFinished: 'office.png', title: 'Meeting Timer' },
+    nadin: { logo: 'nadin.png', logoRunning: 'nadin.png', logoFinished: 'nadin.png', title: 'Meeting Timer' },
     ldb: { logo: 'ldb.png', logoRunning: 'ldb-running.png', logoFinished: 'ldb-done.png', title: 'Meeting Timer' },
     poi: { logo: 'poi.jpg', logoRunning: 'poi.jpg', logoFinished: 'poi.jpg', title: 'Meeting Timer' },
     vw: { logo: 'vw.png', logoRunning: 'vw.png', logoFinished: 'vw.png', title: 'Meeting Timer' },
@@ -38,7 +39,7 @@ export class ThemeDeciderService {
   private translate = inject(TranslocoService);
 
   constructor() {
-    this.myAppLogo = 'Nadin_Logo.svg';
+    this.myAppLogo = 'nadin.png';
 
     const deviceLanguage = window?.navigator.language?.substring(0, 2);
     this.translate.setActiveLang(deviceLanguage);
@@ -74,20 +75,21 @@ export class ThemeDeciderService {
   }
 
   set application(value: string) {
-    this.myApplication = value;
-    const config = ThemeDeciderService.APP_CONFIGS[value.toLowerCase()];
+    this.myApplication = value?value:'default';
+    const config = ThemeDeciderService.APP_CONFIGS[this.myApplication.toLowerCase()];
+    console.log(ThemeDeciderService.APP_CONFIGS[this.myApplication.toLowerCase()])
     if (config) {
       this.myAppLogo = config.logoRunning;
       this.myAppLogoFinished = config.logoFinished;
       this.titleService.setTitle(config.title);
     } else {
-      console.error(`Unknown application '${value}'`);
+      console.error(`Unknown application ('${this.myApplication}')=>('${value}')`);
     }
   }
 
   get application(): string {
     if (!this.myApplication) {
-      this.myApplication = 'Nadin';
+      this.myApplication = 'default';
     }
     return this.myApplication;
   }
